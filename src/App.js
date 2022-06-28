@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbarcomp  from "./component/navbarcomp";
+import Pelanggan from "./component/Pelanggan";
+import Transaksi from "./component/Transaksi";
+import Formtransaksi from "./component/formtransaksi";
+import FooterCom from "./component/footer";
+import Login from "./component/Login";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Navbarcomp/>
+            <Routes>
+                <Route path="/" element={<Pelanggan/>}/>
+                <Route path="pelanggan/" element={<Pelanggan/>}/>
+                <Route path="transaksi/" element={<Transaksi/>}/>
+                <Route path="login/" element={<Login/>}/>
+                <Route path="formtransaksi/" element={<Formtransaksi/>}/>
+            </Routes>
+            <FooterCom/>
+        </BrowserRouter>
+    );
 }
 
 export default App;
